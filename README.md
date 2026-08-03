@@ -1,3 +1,28 @@
+
+## Warning: This is not an official repository
+
+MooreThreads does not provide an official torch_musa_2.7.x wheel compatible with S80. I need a torch 2.7.x version compatible with numpy 2.x to run z Image Turbo's inpaint capability on ComfyUI. This branch exists for this purpose.
+
+### Target
+
+* musa_3.1.0-rc4.2.0-server-Ubuntu_amd64
+* numpy 2.x
+* python 3.12
+* comfyui 0.29.0
+* Z-Image-Turbo-Fun-Controlnet-Union-2.1-lite-2602-8steps.safetensors 
+* workflow guide: https://www.patreon.com/NerdyRodent/posts/free-z-image-for-146298752
+
+### Major Change Log
+
+* To support python3.12 recommand by comfyui
+  ```diff
+  - scipy==1.10.1
+  + scipy==1.11.2
+  ```
+
+-----
+
+##
 ![Torch MUSA_Logo](docs/pdf/images/torch_musa.png)
 --------------------------------------------------------------------------------
 
