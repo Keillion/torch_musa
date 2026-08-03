@@ -1,5 +1,5 @@
 
-## Warning: This is not an official repository
+## Warning: This is not an official repository, for Personal Purpose Only
 
 MooreThreads does not provide an official torch_musa_2.7.x wheel compatible with S80. I need a torch 2.7.x version compatible with numpy 2.x to run z Image Turbo's inpaint capability on ComfyUI. This branch exists for this purpose.
 
@@ -11,6 +11,22 @@ MooreThreads does not provide an official torch_musa_2.7.x wheel compatible with
 * comfyui 0.29.0
 * Z-Image-Turbo-Fun-Controlnet-Union-2.1-lite-2602-8steps.safetensors 
 * workflow guide: https://www.patreon.com/NerdyRodent/posts/free-z-image-for-146298752
+
+### Build Tip
+
+```
+# I build the wheel in ubuntu22.04 6.18.33.2-microsoft-standard-WSL2, so need these steps
+# No need to install MT_Linux_Driver_3.1.0 since I only use WSL2 for build
+sudo apt install build-essential linux-headers-5.15.0-105-generic
+export KDIR=/lib/modules/5.15.0-105-generic/build
+export ARCH=x86_64
+
+# limit memory usage
+export MAX_JOBS=1
+
+# TODO:xxx
+```
+
 
 ### Major Change Log
 
