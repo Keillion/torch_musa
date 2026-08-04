@@ -5,18 +5,21 @@ MooreThreads does not provide an official torch_musa_2.7.x wheel compatible with
 
 ### Target
 
-* musa_3.1.0-rc4.2.0-server-Ubuntu_amd64
-* numpy 2.x
+* MUSA_SDK_4.3.0.CC2.1
+* compatible with numpy both 1.x and 2.x
 * python 3.12
-* comfyui 0.29.0
+* comfyui 0.29.0 for musa: https://github.com/Keillion/ComfyUI-musa
 * Z-Image-Turbo-Fun-Controlnet-Union-2.1-lite-2602-8steps.safetensors 
-* workflow guide: https://www.patreon.com/NerdyRodent/posts/free-z-image-for-146298752
+* z-Image-Turbo's inpaint workflow guide: https://www.patreon.com/NerdyRodent/posts/free-z-image-for-146298752
 
 ### Build Tip
 
 ```
 # manually use pytorch2.7.1 to avoid git clone all the so big pytorch history
-git clone 
+git clone https://github.com/pytorch/pytorch.git --depth 1
+git fetch --depth=20 --tags
+# check, should find v2.7.1
+git tag -l "v*" | grep v2.7.1
 export PYTORCH_REPO_PATH=/home/keillion/pytorch/
 
 sudo apt install cmake build-essential
@@ -25,12 +28,13 @@ sudo apt install cmake build-essential
 sudo apt install linux-headers-5.15.0-105-generic
 export KDIR=/lib/modules/5.15.0-105-generic/build
 export ARCH=x86_64
-# MT_Linux_Driver_3.1.0
-export TORCH_MUSA_ARCH_LIST="31"
+# maybe CC2.1?
+export TORCH_MUSA_ARCH_LIST="21"
 
 # limit memory usage
 export MAX_JOBS=1
 
+USE_MCCL=0 bash build.sh -c -w
 # TODO:xxx
 ```
 
