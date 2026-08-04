@@ -15,6 +15,10 @@ MooreThreads does not provide an official torch_musa_2.7.x wheel compatible with
 ### Build Tip
 
 ```
+# seems can't use latest muThrust and muAlg
+git clone https://github.com/MooreThreads/muThrust.git -b musa-1.12.1 --depth 1
+git clone https://github.com/MooreThreads/muAlg.git -b musa-1.12.1 --depth 1
+
 # manually use pytorch2.7.1 to avoid git clone all the so big pytorch history
 git clone https://github.com/pytorch/pytorch.git --depth 1
 git fetch --depth=20 --tags
@@ -35,7 +39,8 @@ export TORCH_MUSA_ARCH_LIST="21"
 export MAX_JOBS=1
 
 USE_MCCL=0 bash build.sh -c -w
-# TODO:xxx
+# TODO: Not sure, maybe I don't need manually compile pytorch? Is it enough to install precompiled version?
+USE_MCCL=0 bash build.sh -m -w
 ```
 
 
