@@ -15,11 +15,18 @@ MooreThreads does not provide an official torch_musa_2.7.x wheel compatible with
 ### Build Tip
 
 ```
+# manually use pytorch2.7.1 to avoid git clone all the so big pytorch history
+git clone 
+export PYTORCH_REPO_PATH=/home/keillion/pytorch/
+
+sudo apt install cmake build-essential
 # I build the wheel in ubuntu22.04 6.18.33.2-microsoft-standard-WSL2, so need these steps
 # No need to install MT_Linux_Driver_3.1.0 since I only use WSL2 for build
-sudo apt install build-essential linux-headers-5.15.0-105-generic
+sudo apt install linux-headers-5.15.0-105-generic
 export KDIR=/lib/modules/5.15.0-105-generic/build
 export ARCH=x86_64
+# MT_Linux_Driver_3.1.0
+export TORCH_MUSA_ARCH_LIST="31"
 
 # limit memory usage
 export MAX_JOBS=1
