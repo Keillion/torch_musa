@@ -32,14 +32,17 @@ sudo apt install cmake build-essential
 sudo apt install linux-headers-5.15.0-105-generic
 export KDIR=/lib/modules/5.15.0-105-generic/build
 export ARCH=x86_64
-# maybe CC2.1?
-export TORCH_MUSA_ARCH_LIST="21"
+#<del># maybe CC2.1?</del>
+#<del>export TORCH_MUSA_ARCH_LIST="21"</del>
+# from musa_version_query, I got "21;22;31"
+export TORCH_MUSA_ARCH_LIST="21;22;31"
 
 # limit memory usage
 export MAX_JOBS=1
 
 USE_MCCL=0 bash build.sh -c -w
-# TODO: Not sure, maybe I don't need manually compile pytorch? Is it enough to install precompiled version?
+# TODO: Not sure, maybe I don't need manually compile pytorch?
+# Is it enough to install precompiled version?
 USE_MCCL=0 bash build.sh -m -w
 ```
 
